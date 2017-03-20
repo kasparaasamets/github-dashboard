@@ -1,0 +1,68 @@
+<div class="row hidden-xs hidden-sm repository-table-headers">
+    <div class="col-md-3">Title</div>
+    <div class="col-md-3">Commits</div>
+    <div class="col-md-3">Pull requests</div>
+    <div class="col-md-3">Issues</div>
+</div>
+
+<div ng-repeat="item in repositories" class="repository">
+
+    <div class="row">
+
+        <div class="col-xs-12 col-md-3 repository-title">
+            {{item.name}}
+        </div>
+
+        <div ng-if="item.details" class="details">
+
+            <div class="col-xs-12 col-md-3">
+                <h3 class="hidden-md hidden-lg" ng-show="item.details.commits.length">
+                    Commits
+                </h3>
+                <div ng-repeat="commit in item.details.commits">
+                    <span>
+                        {{ commit.commit.author.date | date:'dd.MM.yyyy' }}
+                        {{ commit.author.login || commit.commit.author.name }}
+                    </span>
+                    <a href="{{ commit.html_url }}" title="{{ commit.commit.message }}" target="_blank">
+                        {{ commit.commit.message }}
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-md-3">
+                <h3 class="hidden-md hidden-lg" ng-show="item.details.pullRequests.length">
+                    Pull requests
+                </h3>
+                <div ng-repeat="pullRequest in item.details.pullRequests">
+                    <span>
+                        {{ commit.created_at | date:'dd.MM.yyyy' }}
+                        {{ pullRequest.user.login }}
+                    </span>
+                    <a href="{{ pullRequest.html_url }}" title="{{ pullRequest.title }}" target="_blank">
+                        {{ pullRequest.title }}
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-md-3">
+                <h3 class="hidden-md hidden-lg" ng-show="item.details.issues.length">
+                    Issues
+                </h3>
+                <div ng-repeat="issue in item.details.issues">
+                    <span>
+                        {{ issue.created_at | date:'dd.MM.yyyy' }}
+                        {{ issue.user.login }}
+                    </span>
+                    <a href="{{ issue.html_url }}" title="{{ issue.title }}" target="_blank">
+                        {{ issue.title }}
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <hr>
+
+</div>

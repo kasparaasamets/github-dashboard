@@ -1,0 +1,33 @@
+<div ng-controller="HomeCtrl">
+
+    <button ng-click="refreshDetails()" class="refresh-details-btn btn btn-success" ng-disabled="userData.updateInProgress">
+        <span ng-if="!userData.updateInProgress">Refresh data</span>
+        <span ng-if="userData.updateInProgress">Update in progress...</span>
+    </button>
+
+    <ul class="nav nav-tabs">
+        <li role="presentation" ui-sref-active="active">
+            <a ui-sref="home({ repositoryGroup: 'my-repositories' })">
+                My repositories
+                ({{ userData.myRepositories.length }})
+            </a>
+        </li>
+        <li role="presentation" ui-sref-active="active">
+            <a ui-sref="home({ repositoryGroup: 'followed-repositories' })">
+                Followed repositories
+                ({{ userData.followedRepositories.length }})
+            </a>
+        </li>
+    </ul>
+
+    <div class="alert alert-danger" role="alert" ng-if="errorMessage">
+        {{ errorMessage }}
+    </div>
+
+    <repositories-details repositories="userData.myRepositories" ng-show="repositoryGroup == 'my-repositories'">
+    </repositories-details>
+
+    <repositories-details repositories="userData.followedRepositories" ng-show="repositoryGroup == 'followed-repositories'">
+    </repositories-details>
+
+</div>

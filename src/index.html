@@ -1,0 +1,37 @@
+<!doctype html>
+<html ng-app="github-dashboard">
+
+<head>
+    <title>GitHub Dashboard</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+
+<body ng-controller="MainCtrl">
+
+<div class="header-outer">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12" ng-class="userData.myUserInfo ? 'col-md-6' : 'text-center'">
+                <h1>GitHub Dashboard</h1>
+            </div>
+            <div class="col-xs-12 col-md-6 login-info" ng-if="userData.myUserInfo">
+                {{userData.myUserInfo.login}}
+                <button class="btn btn-default" ng-click="logout()">Log out</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <section ui-view></section>
+</div>
+
+<script src="js/bundle.js"></script>
+
+</body>
+
+</html>

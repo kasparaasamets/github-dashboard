@@ -1,0 +1,59 @@
+.alert {
+  margin-top: 15px;
+}
+
+.header-outer {
+  background: #eeeeee;
+  padding-bottom: 15px;
+  margin-bottom: 40px;
+}
+
+.login-info {
+  text-align: right;
+  padding-top: 25px;
+  color: #777777;
+  button {
+    margin-left: 25px;
+  }
+}
+
+.btn.refresh-details-btn {
+  margin-bottom: 15px;
+}
+
+.repository-table-headers, .repository .details h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #777777;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Row in repositories table */
+.repository {
+  .details {
+    span {
+      display: block;
+      width: 100%;
+      font-size: 10px;
+      color: #999999;
+    }
+    a {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 12px;
+      display: block;
+      margin-bottom: 7px;
+    }
+  }
+  .repository-title {
+    font-size: 19px;
+    color: #777777;
+  }
+}
+
+hr {
+  margin: 10px 0;
+}
